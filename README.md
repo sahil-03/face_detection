@@ -6,5 +6,7 @@ In matrix theory, there is a neat trick for dimensionality reduction called Sing
 
 This proves to be handy when trying to do image classification. We can line up a dataset of faces into the columns X and then decompose it. The U matrix is most helpful as it is an orthonormal basis of the column space, therefore, behaves as the representation space of all faces. Projecting a new face into this orthonormal basis returns a unique vector in space that represents that face (alpha = U^T @ x). To reconstruct the face, we can do x_recon = U @ (U^T @ x). 
 
-In this mini-project, I simply play around with face detection using opencv and SVD to try to uniquely represent faces, perform classification, and reconstruct faces from the latent space of all faces represented by decompsing the original input matrix into U (and other components).  
+In this mini-project, I create light-weight face detection using opencv and SVD to try to uniquely represent faces, perform classification, and reconstruct faces from the latent space of all faces represented by decomposing the original input matrix into U (and other components).  
+
+*Note: this was meant for experimentation rather than production-code. 
 
