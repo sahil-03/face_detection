@@ -45,11 +45,18 @@ def construct_X(test_holdout: Optional[int] = 0) -> XInput:
     X_centered = X - avg_face
 
     # Extract test columns
-    test = X_centered[:, :test_holdout]
-    test_list = [test[:, i] for i in range(test.shape[1])]
+    if test_holdout > 0:
+        test = X_centered[:, :test_holdout]
+        test_list = [test[:, i] for i in range(test.shape[1])]
 
-    return XInput(
-        X_centered[:, :-test_holdout], 
-        test_list,
-        avg_face
-    )
+        return XInput(
+            X_centered[:, :-test_holdout], 
+            test_list,
+            avg_face
+        )
+    else: 
+        return XInput(
+            X_centered, 
+            None,
+            avg_face
+        )
